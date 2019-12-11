@@ -22,6 +22,23 @@
       }
       .registration-dropdown{
           background: #F8F9FA;
+          padding: 0 15px;
+          .control-label{
+              font-size: 12px;
+          }
+          .custom-input::placeholder{
+              font-size: 12px;
+          }
+          .submitBtn{
+              margin-top: 30px;
+              button{
+                  width: 200px;
+              }
+          }
+          h4{
+              font-size: 20px;
+              margin-bottom: 20px;
+          }
       }.form-group.required .control-label:after {
         content:"*";
         color:red;

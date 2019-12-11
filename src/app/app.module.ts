@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RestuarantComponent } from './vendor-registration-inner-page/restuarant/restuarant.component';
 import { VendorRegistrationInnerPageComponent } from './vendor-registration-inner-page/vendor-registration-inner-page.component';
+import { RegistrationService } from './registration/registration.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { VendorRegistrationInnerPageComponent } from './vendor-registration-inne
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

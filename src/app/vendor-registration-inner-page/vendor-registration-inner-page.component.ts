@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendor-registration-inner-page',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorRegistrationInnerPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(() => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.selectedVendorValues = this.router.getCurrentNavigation().extras.state.vendorOptions;
+      }
+    })
+   }
+
+  selectedVendorValues: any;
+  isLoading = false;
 
   ngOnInit() {
+    this.isLoading = true;
   }
 
 }

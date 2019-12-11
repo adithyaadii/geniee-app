@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VendorRegistrationInnerPageModule } from '../vendor-registration-inner-page/vendor-registration-inner-page.module';
-import { RegistrationService } from './registration.service';
+
 
 
 
@@ -11,6 +11,6 @@ import { RegistrationService } from './registration.service';
     CommonModule,
     VendorRegistrationInnerPageModule
   ],
-  providers: [RegistrationService]
+  providers: []
 })
 export class RegistrationModule { }

@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { RegistrationService } from './registration.service';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -9,13 +10,13 @@ import { RegistrationService } from './registration.service';
 })
 export class RegistrationComponent implements OnInit, AfterViewInit {
 
-  constructor(private selectedVendorService: RegistrationService) { }
+  constructor(private selectedVendorService: RegistrationService, private router: Router) { }
 
   vendors = [];
   proceedButtonDisableWithoutSelctingOption = false;
-  @ViewChild('mySelect', {static: false}) mySelect: ElementRef;
-
+  vendorOptions: any;
   registrationForm: FormGroup;
+  showVendorBasedForm = false;
 
   ngOnInit() {
     this.vendors = [
@@ -50,8 +51,17 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   }
 
   selectVendor(vendorOptions) {
+    this.vendorOptions = vendorOptions;
     this.proceedButtonDisableWithoutSelctingOption = false;
-    this.selectedVendorService.selectedVendorValue.next(vendorOptions);
+  }
+
+  registerForm() {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        vendorOptions: this.vendorOptions
+      }
+    };
+    this.router.navigate(['vendor-registration'], navigationExtras);
   }
 
 }
