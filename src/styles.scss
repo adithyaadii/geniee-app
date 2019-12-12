@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/modules/_fonts.scss';
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+$primary_font: 'Avenir-Roman';
+$heading_font_heavy: 'Avenir-Heavy';
+
+//font-size
+$font-xs: 12px;
+$font-sm: 14px;
+$primary-fs: 16px;
+$font-md: 18px;
+$font-lg: 20px;
+$font-header: 25px;
+
+body, html{
+    font-family: $primary_font;
+    height: 100%;
+}

@@ -1,0 +1,56 @@
+<div class="container-fluid no-gutters h-100">
+        <div class="row h-100">
+            <div class="col-6 no-gutters">
+                <div class="registration-image h-100"><img src="assets/images/package.jpg">
+                    <!-- <p>Sign up for lightning fast delivery to your customers</p> -->
+                </div>
+            </div>
+            <div class="col-6 no-gutters">
+                <div class="registration-dropdown h-100 d-flex flex-column justify-content-center">
+                    <div class="container text-center">
+    
+                        <div id="col" class="row no-gutters justify-content-center">
+                            <h4>Restaurant Registration Form</h4>
+                        </div>
+    
+    
+                    </div>
+                    <form [formGroup]="restuarantForm" (ngSubmit)="restuarantFormSubmit()">
+                        <div class="container-fluid justify-content-center">
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-md-6 required">
+                                    <label class="control-label" for="input">Vendor Name</label>
+                                    <input formControlName="vendorName" type="text" class="form-control custom-input" id="input" placeholder="Vendor Name">
+                                </div>
+                                <div class="form-group col-md-6 required">
+                                    <label class="control-label" for="input">Vendor POC
+                                        Name</label>
+                                    <input formControlName="vendorPocName" type="text" class="form-control custom-input" id="input" placeholder="Vendor POC Name">
+                                </div>
+                                <div class="form-group col-md-6 required">
+                                    <label class="control-label" for="inputEmail4">Vendor POC
+                                        Designation</label>
+                                    <input formControlName="vendorPocDesignation" type="input" class="form-control custom-input" id="input"
+                                        placeholder="Vendor POC Designation">
+                                </div>
+                                <div class="form-group col-md-6 required">
+                                    <label class="control-label" for="input">Vendor POC Contact Number</label>
+                                    <input formControlName="vendorPocContactNumber" type="text" class="form-control custom-input" id="input" placeholder="Vendor POC Contact Number">
+                                </div>
+                                <div class="form-group col-md-6 required">
+                                    <label class="control-label" for="input">Vendor POC Email ID
+                                    </label>
+                                    <input formControlName="vendorPocEmail" type="text" class="form-control custom-input" id="input" placeholder="Vendor POC Email ID ">
+                                </div>
+                                <div class="form-group col-md-6 required">
+                                    <label class="control-label" for="input">Vendor City</label>
+                                    <input formControlName="vendorCity" type="text" class="form-control custom-input" id="input" placeholder="Vendor City">
+                                </div>
+                            </div>
+                            <div class="text-center submitBtn"><button type="submit" [ngClass]="{'disabled': !restuarantForm.valid}" [disabled]="!restuarantForm.valid" class="btn btn-primary">Submit</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

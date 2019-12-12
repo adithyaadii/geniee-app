@@ -1,0 +1,33 @@
+<div class="container-fluid no-gutters h-100" *ngIf="!showVendorBasedForm">
+    <div class="row h-100">
+        <div class="col-6 no-gutters">
+            <div class="registration-image h-100"><img src="assets/images/vendor1.jpg">
+                <!-- <p>Sign up for lightning fast delivery to your customers</p> -->
+            </div>
+        </div>
+        <div class="col-6 no-gutters">
+            <div class="registration-dropdown d-flex flex-column justify-content-center h-100">
+
+                <div class="container">
+                    <div class="row text-center justify-content-center ">
+                        <h4>Partner with us</h4>
+                    </div>
+                </div>
+                <form [formGroup]="registrationForm" (ngSubmit)="registerForm()">
+                    <div class="container">
+                        <div class="form-group text-center justify-content-center">
+                            <select fromControlName="vendorList" #mySelect class="custom-select custom-select-lg mb-1" (change)='selectVendor($event.target.value)' style="width: 60vh;">
+                                <option value="" selected disabled>Select Vendor from dropdown</option>
+                                <option class='option' *ngFor='let vendorOptions of vendors' [value]="vendorOptions.id">
+                                    {{vendorOptions.vendorName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="login-btn text-center justify-content-center">
+                        <button type="submit" [ngClass]="{'disabled': proceedButtonDisableWithoutSelctingOption}" [disabled]="proceedButtonDisableWithoutSelctingOption" class="btn btn-primary">Proceed</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
