@@ -26,7 +26,7 @@ export class RestuarantComponent implements OnInit {
 
   restuarantFormSubmit(){
     if (this.restuarantForm.valid) {
-      this.router.navigate(['registration-successfull']);
+      this.router.navigate(['sucess']);
     }
   }
 

@@ -11,7 +11,7 @@ import { RegistrationService } from './registration/registration.service';
 import { PackagesComponent } from './vendor-registration-inner-page/packages/packages.component';
 import { GroceriesComponent } from './vendor-registration-inner-page/groceries/groceries.component';
 import { BookstallComponent } from './vendor-registration-inner-page/book stall/bookstall.component';
-import { SucessComponent } from './vendor-registration-inner-page/regestrationsucessfull/sucess.component';
+import { SucessComponent } from './regestration-successfull/sucess.component';
 @NgModule({
   declarations: [
     AppComponent,

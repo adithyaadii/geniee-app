@@ -4,7 +4,7 @@ import { RestuarantModule } from './restuarant/restuarnt.module';
 import { GroceriesComponent } from './groceries/groceries.component';
 import { BookstallComponent } from './book stall/bookstall.component';
 import { PackagesComponent } from './packages/packages.component';
-import { SucessComponent } from './regestrationsucessfull/sucess.component';
+import { SucessComponent } from '../regestration-successfull/sucess.component';
 
 
 

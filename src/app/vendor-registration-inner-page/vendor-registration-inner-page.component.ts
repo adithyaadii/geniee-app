@@ -17,10 +17,8 @@ export class VendorRegistrationInnerPageComponent implements OnInit {
    }
 
   selectedVendorValues: any;
-  isLoading = false;
 
   ngOnInit() {
-    this.isLoading = true;
   }
 
 }
