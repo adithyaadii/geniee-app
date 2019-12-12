@@ -1,9 +1,5 @@
-.container-fluid{
-    overflow: hidden;
-}
 .registration-image{
           background: #EFEBEB;
-        //   padding: 100px 0;
           img{
               display: block;
               width: 100%;
@@ -51,6 +47,9 @@
           padding-right: 15px !important;
           padding-left: 15px !important
       }
+      .container-fluid{
+          overflow: hidden;
+      }
       .control-label{
-        font-weight: 600;
+                font-weight: 600;
       }
