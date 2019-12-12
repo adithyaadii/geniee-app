@@ -8,8 +8,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RestuarantComponent } from './vendor-registration-inner-page/restuarant/restuarant.component';
 import { VendorRegistrationInnerPageComponent } from './vendor-registration-inner-page/vendor-registration-inner-page.component';
 import { RegistrationService } from './registration/registration.service';
-import { RegistrationSuccessfullComponent } from './registration-successfull/registration-successfull.component';
-
+import { PackagesComponent } from './vendor-registration-inner-page/packages/packages.component';
+import { GroceriesComponent } from './vendor-registration-inner-page/groceries/groceries.component';
+import { BookstallComponent } from './vendor-registration-inner-page/book stall/bookstall.component';
+import { SucessComponent } from './vendor-registration-inner-page/regestrationsucessfull/sucess.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,10 @@ import { RegistrationSuccessfullComponent } from './registration-successfull/reg
     RegistrationComponent,
     RestuarantComponent,
     VendorRegistrationInnerPageComponent,
-    RegistrationSuccessfullComponent,
+    BookstallComponent,
+    GroceriesComponent,
+    PackagesComponent,
+    SucessComponent
   ],
   imports: [
     BrowserModule,
