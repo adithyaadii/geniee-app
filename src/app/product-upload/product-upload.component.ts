@@ -16,7 +16,7 @@ export class ProductUploadComponent implements OnInit {
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
     document.getElementById("openBtn").style.visibility = "hidden";
-    document.getElementById("page-content").style.marginLeft = "20%";
+    document.getElementById("page-content").style.marginLeft = "18%";
   }
 
   closeNav() {
