@@ -43,4 +43,8 @@ export class ProductUploadComponent implements OnInit {
     this.router.navigate(['product-list']);
   }
 
+  logout() {
+    this.router.navigate(['login']);
+  }
+
 }
