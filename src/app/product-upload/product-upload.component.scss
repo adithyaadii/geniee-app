@@ -1,5 +1,6 @@
 .product-navbar{
     background: #222e3a;
+    color: #fff;
     .toggle-button{
         background: none;
         border: 0;
@@ -10,6 +11,26 @@
         color: #fff;
         font-size: 16px;
         margin-bottom: 0;
+    }
+    .dropdown-menu{
+      background: #222e3a;
+      width: 183px;
+      img{
+        position: absolute;
+        top: 20px;
+        background: #fff;
+        border: 1px solid #fff;
+        left: 25px;
+        width: 32px;
+        padding: 5px;
+      }
+      .dropdown-item{
+        font-size: 12px;
+        color: #818181;
+        &:hover{
+          background: none;
+        }
+      }
     }
 }
 
@@ -64,16 +85,7 @@
     transition: margin-left .5s;
     padding: 16px;
   }
-  .dropdown-menu{
-    background-color: #222e3a;
-    color: #fff
-  }
-.dropdown-header{
-  color: #fff
-}
-.dropdown-item{
-  color: #fff
-}
+
   .page-content{
     margin-left: 18%;
     padding: 10px;
