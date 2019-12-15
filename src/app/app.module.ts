@@ -13,6 +13,7 @@ import { GroceriesComponent } from './vendor-registration-inner-page/groceries/g
 import { BookstallComponent } from './vendor-registration-inner-page/book stall/bookstall.component';
 import { SucessComponent } from './regestration-successfull/sucess.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
+import { ProductListComponent } from './product-upload/product-list/product-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     GroceriesComponent,
     PackagesComponent,
     SucessComponent,
-    ProductUploadComponent
+    ProductUploadComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

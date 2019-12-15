@@ -8,31 +8,24 @@
                 <img src="assets/images/user.png">
             </div>
             <div class="col-10">
-                    <a class="dropdown-item" href="#">Walltech</a>
-                    <a class="dropdown-item" href="#">Edit my profile</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="javascript:void(0);">Walltech</a>
+                    <a class="dropdown-item" href="javascript:void(0);">Edit my profile</a>
+                    <a class="dropdown-item" href="javascript:void(0);">Logout</a>
             </div>
         </div>
-        <!-- <ul>
-            <li><img src="assets/images/user.png"></li>
-            <li>
-                <a class="dropdown-item" href="#">Walltech</a>
-                <a class="dropdown-item" href="#">Edit my profile</a>
-                <a class="dropdown-item" href="#">Logout</a>
-            </li>
-        </ul> -->
     </div>
 </div>
 </nav>
 
 <div id="mySidebar" class="sidebar">
     <button type="button" class="closebtn" (click)="closeNav()">☰</button>
-    <a href="#">Products</a>
-    <a href="#">Vendor's</a>
-    <a href="#">Delivery Boy</a>
-    <a href="#">Reports</a>
-    <a href="#">Settings</a>
+    <a href="javascript:void(0);">Products</a>
+    <a href="javascript:void(0);">Vendor's</a>
+    <a href="javascript:void(0);">Delivery Boy</a>
+    <a href="javascript:void(0);">Reports</a>
+    <a href="javascript:void(0);">Settings</a>
 </div>
+<form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
 <div id="page-content" class="page-content">
     <div class="row">
         <div class="col-6 text-left">
@@ -41,7 +34,7 @@
         <div class="col-6 text-right">
             <ul class="product-right">
                 <li><a href="javascript:void(0);">Move to Trash</a></li>
-                <li><button>Publish</button></li>
+                <li><button type="submit">Publish</button></li>
             </ul>
         </div>
     </div>
@@ -50,7 +43,7 @@
             <div class="product-page-inner">
                 <h4>Product name</h4>
                 <div class="form-group">
-                    <input type="text" placeholder="Product name">
+                    <input formControlName="productName" type="text" placeholder="Product name">
                 </div>
             </div>
             <div class="product-page-inner">
@@ -59,13 +52,13 @@
                         <div class="row pricing-wrap">
                             <div class="col-5"><label>Regular price()</label></div>
                             <div class="col-7">
-                                <input type="text" placeholder="Product name">
+                                <input formControlName="regularPrice" type="text" placeholder="Regular Price">
                             </div>
                         </div>
                         <div class="row pricing-wrap">
                             <div class="col-5"><label>SKU</label></div>
                             <div class="col-7">
-                                <input type="text" placeholder="SKU">
+                                <input formControlName="sku" type="text" placeholder="SKU">
                             </div>
                         </div>
                     </div>
@@ -73,13 +66,13 @@
                         <div class="row pricing-wrap">
                             <div class="col-5"><label>Sale price()</label></div>
                             <div class="col-7">
-                                <input type="text" placeholder="Sale price">
+                                <input formControlName="salePrice" type="text" placeholder="Sale price">
                             </div>
                         </div>
                         <div class="row pricing-wrap">
                             <div class="col-5"><label>Stock status</label></div>
                             <div class="col-7">
-                                <input type="text" placeholder="Stock status">
+                                <input formControlName="stockStatus" type="text" placeholder="Stock status">
                             </div>
                         </div>
                     </div>
@@ -87,10 +80,11 @@
             </div>
             <div class="product-page-inner">
                 <h4>Product short description</h4>
-                <textarea rows="5" col="5" placeholder="Product short description"></textarea>
+                <textarea formControlName="productDescription" rows="5" col="5" placeholder="Product short description"></textarea>
             </div>
         </div>
         <div class="col-4">
         </div>
     </div>
 </div>
+</form>

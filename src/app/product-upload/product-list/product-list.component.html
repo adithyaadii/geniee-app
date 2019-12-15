@@ -1,0 +1,81 @@
+<nav class="navbar product-navbar" id="main">
+    <button class="toggle-button text-left" id="openBtn" (click)="openNav()" href="javascript:void(0)">☰</button>
+    <div class="nav-item dropdown">
+    <a class="text-right user-profile nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Howdy, Walltech</a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="row">
+            <div class="col-2">
+                <img src="assets/images/user.png">
+            </div>
+            <div class="col-10">
+                    <a class="dropdown-item" href="#">Walltech</a>
+                    <a class="dropdown-item" href="#">Edit my profile</a>
+                    <a class="dropdown-item" href="#">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<div id="mySidebar" class="sidebar">
+    <button type="button" class="closebtn" (click)="closeNav()">☰</button>
+    <a href="#">Products</a>
+    <a href="#">Vendor's</a>
+    <a href="#">Delivery Boy</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+</div>
+<table id="page-content" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col"><input type="checkbox"></th>
+            <th scope="col">Item Name</th>
+            <th scope="col">SKU</th>
+            <th scope="col">Regular Price</th>
+            <th scope="col">Sales Price</th>
+            <th scope="col">Categories</th>
+            <th scope="col">Type</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><input type="checkbox"></th>
+            <td>koren-Food</td>
+            <td>KR584UT</td>
+            <td>$250.00</td>
+            <td>$230.00</td>
+            <td>Fish</td>
+            <td>Non-Veg</td>
+            <td>
+              <p>Last Modified</p>
+              <p>2019/08/16</p>
+            </td>
+          </tr>
+          <tr>
+              <th scope="row"><input type="checkbox"></th>
+              <td>salmon</td>
+              <td>SM487RE</td>
+              <td>$280.00</td>
+              <td>$250.00</td>
+              <td>Fish</td>
+              <td>Non-Veg</td>
+              <td>
+                <p>Last Modified</p>
+                <p>2019/08/16</p>
+              </td>
+            </tr>
+            <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>Chicke tika</td>
+                <td>CH974TD</td>
+                <td>$320.00</td>
+                <td>$300.00</td>
+                <td>Chicken</td>
+                <td>Non-Veg</td>
+                <td>
+                  <p>Last Modified</p>
+                  <p>2019/08/16</p>
+                </td>
+              </tr>
+        </tbody>
+</table>
