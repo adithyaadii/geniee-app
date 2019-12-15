@@ -23,7 +23,6 @@ export class ProductUploadComponent implements OnInit {
       productDescription: new FormControl(''),
     });
   }
-
   openNav() {
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
