@@ -1,6 +1,31 @@
-<nav class="navbar product-navbar" id="main">
+<nav class="navbar product-navbar">
     <button class="toggle-button text-left" id="openBtn" (click)="openNav()" href="javascript:void(0)">☰</button>
-    <p class="text-right user-profile">Howdy, Walltech</p>
+    <li class="nav-item dropdown hidden-md-down">
+        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="text-right user-profile">Howdy, Walltech
+                <span><img id="openProfile" src="assets/images/n.png"></span>
+            </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+           <div class="col-12">
+               <div class="row">
+                   <div class="col-6">
+                        <span><img id="openProfile" src="assets/images/n.png"></span>
+                   </div>
+               </div>
+           </div>
+            <a href="#" class="dropdown-item">  <span style=margin-left:10px>
+                    Profile</span></a>
+             <a href="#" class="dropdown-item">  <span style=margin-left:10px>
+                            Edit Profile</span></a>
+             <a href="#" class="dropdown-item"> <span style=margin-left:10px>
+                                    Profile</span></a>
+            <a href="#" class="dropdown-item">
+                <div class="dropdown-divider"></div>
+                <span style=margin-left:10px>Logout</span>
+            </a>
+        </div>
+    </li>
 </nav>
 
 <div id="mySidebar" class="sidebar">
