@@ -18,8 +18,8 @@
                         <div class="form-group text-center justify-content-center">
                             <select fromControlName="vendorList" #mySelect class="custom-select custom-select-lg mb-1" (change)='selectVendor($event.target.value)' style="width: 60vh;">
                                 <option value="" selected disabled>Select Vendor from dropdown</option>
-                                <option class='option' *ngFor='let vendorOptions of vendors' [value]="vendorOptions.id">
-                                    {{vendorOptions.vendorName}}</option>
+                                <option class='option' *ngFor='let vendorOptions of vendors' [value]="vendorOptions.ID">
+                                    {{vendorOptions.Name}}</option>
                             </select>
                         </div>
                     </div>

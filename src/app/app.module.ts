@@ -14,6 +14,7 @@ import { BookstallComponent } from './vendor-registration-inner-page/book stall/
 import { SucessComponent } from './regestration-successfull/sucess.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
 import { ProductListComponent } from './product-upload/product-list/product-list.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { ProductListComponent } from './product-upload/product-list/product-list
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [RegistrationService],
   bootstrap: [AppComponent]

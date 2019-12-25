@@ -12,6 +12,7 @@ export class VendorRegistrationInnerPageComponent implements OnInit {
     this.route.queryParams.subscribe(() => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.selectedVendorValues = this.router.getCurrentNavigation().extras.state.vendorOptions;
+        localStorage.setItem('selectedVendor', this.selectedVendorValues);
       }
     })
    }
@@ -19,6 +20,11 @@ export class VendorRegistrationInnerPageComponent implements OnInit {
   selectedVendorValues: any;
 
   ngOnInit() {
+    this.loadComponent();
+  }
+
+  loadComponent(){
+    return this.selectedVendorValues = localStorage.getItem('selectedVendor');
   }
 
 }

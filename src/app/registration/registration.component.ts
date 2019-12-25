@@ -8,7 +8,7 @@ import { Router, NavigationExtras } from '@angular/router';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit, AfterViewInit {
+export class RegistrationComponent implements OnInit {
 
   constructor(private selectedVendorService: RegistrationService, private router: Router) { }
 
@@ -19,24 +19,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   showVendorBasedForm = false;
 
   ngOnInit() {
-    this.vendors = [
-      {
-        vendorName: 'Restaurant',
-        id: 1
-      },
-      {
-        vendorName: 'Grocery Store',
-        id: 2
-      },
-      {
-        vendorName: 'Packages',
-        id: 3
-      },
-      {
-        vendorName: 'Book Stall',
-        id: 4
-      }
-    ];
+    this.getVendorsList();
     this.registrationForm = new FormGroup({
       vendorList: new FormControl('')
     });
@@ -47,7 +30,12 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit() {
+  getVendorsList() {
+    this.selectedVendorService.getListOfCategories().subscribe(
+      (data) => {
+        this.vendors = data.categories;
+      }
+    );
   }
 
   selectVendor(vendorOptions) {
