@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,27 @@ export class RegistrationService {
   constructor(private http: HttpClient) { }
 
   getListOfCategories(): Observable<any> {
-    return this.http.get('https://api.walltechsoft.com/list-categories');
+    return this.http.get('http://api.walltechsoft.com/categories/list-all');
   }
 
   submitVendorRegistrationForm(registrationObj): Observable<any> {
-    return this.http.post('http://api.walltechsoft.com/register',registrationObj);
+    return this.http.post('http://api.walltechsoft.com/vendor/register',registrationObj);
+  }
+
+  login(requestBody): Observable<any> {
+    return this.http.post('http://api.walltechsoft.com/vendor/login', requestBody );
+  }
+
+  listProducts(): Observable<any> {
+    return this.http.get('http://api.walltechsoft.com/vendor/products', {headers: new HttpHeaders({
+    'Content-Type': 'application/json', Authorization: 'OFk2Q1FnS0pIU2phaHdFekpGRUtZR1dnTmY5YUdyTk5CZFdFd0V2Uw=='})
+    });
+  }
+
+  addProducts(requestBody): Observable<any> {
+    return this.http.post('http://api.walltechsoft.com/vendor/product/add', requestBody, {headers: new HttpHeaders(
+      {'Content-Type': 'application/json', Authorization: 'OFk2Q1FnS0pIU2phaHdFekpGRUtZR1dnTmY5YUdyTk5CZFdFd0V2Uw=='}
+    )})
   }
 
 }

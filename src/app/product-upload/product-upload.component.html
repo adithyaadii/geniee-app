@@ -100,22 +100,9 @@
                     <div class="custom-control custom-checkbox" style=padding-left:0px>
                         <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
                         <ul>
-                            <li>
-                                <label class="custom-control-label" for="customCheck">Biryani's</label>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <label class="custom-control-label" for="customCheck">Quick Bites</label> </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <label class="custom-control-label" for="customCheck">Meals</label>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <label class="custom-control-label" for="customCheck">Egg Items</label>
+                            <li *ngFor="let categories of productCategoryList | keyvalue">
+                                <input type="checkbox" (change)="selectCategory(categories.value, $event.target.checked)">
+                                <label>{{categories.value.CategoryName}}</label>
                             </li>
                         </ul>
                     </div>
@@ -125,11 +112,12 @@
             <div class="card">
                 <div class="card-header" style=background-color:#fff>Product type</div>
                 <div class="card-body">
-                    <div class="custom-control custom-switch">
-                            <label>Veg</label>
-                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                        <label class="custom-control-label" for="customSwitch1">Non-Veg</label>
-                    </div>
+                    <div class="checkbox">
+                        <label>
+                          <input type="checkbox" data-toggle="toggle">
+                          Option one is enabled
+                        </label>
+                      </div>
                 </div>
             </div>
         </div>

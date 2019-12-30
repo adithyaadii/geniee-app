@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RegistrationService } from 'src/app/registration/registration.service';
 
 @Component({
   selector: 'app-groceries',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class GroceriesComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private registrationService: RegistrationService) { }
 
   restuarantForm: FormGroup;
 
@@ -26,7 +27,21 @@ export class GroceriesComponent implements OnInit {
 
   restuarantFormSubmit(){
     if (this.restuarantForm.valid) {
-      this.router.navigate(['sucess']);
+      const registrationForm = {
+        UserCategoryID: 4,
+        Name: this.restuarantForm.value.vendorName,
+        POCName: this.restuarantForm.value.vendorPocName,
+        POCDesignation: this.restuarantForm.value.vendorPocDesignation,
+        Phone: this.restuarantForm.value.vendorPocContactNumber,
+        Email: this.restuarantForm.value.vendorPocEmail,
+        City: this.restuarantForm.value.vendorCity
+      }
+      this.registrationService.submitVendorRegistrationForm(registrationForm).subscribe(
+        (data) => {
+          console.log(data);
+          this.router.navigate(['sucess']);
+        }
+      );
     }
   }
 

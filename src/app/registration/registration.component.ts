@@ -34,8 +34,7 @@ export class RegistrationComponent implements OnInit {
     this.selectedVendorService.getListOfCategories().subscribe(
       (data) => {
         this.vendors = data.categories;
-      }
-    );
+      });
   }
 
   selectVendor(vendorOptions) {

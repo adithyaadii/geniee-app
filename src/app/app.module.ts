@@ -15,6 +15,7 @@ import { SucessComponent } from './regestration-successfull/sucess.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
 import { ProductListComponent } from './product-upload/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login/login.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RegistrationService],
+  providers: [RegistrationService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

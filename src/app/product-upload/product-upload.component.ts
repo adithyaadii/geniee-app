@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegistrationService } from '../registration/registration.service';
 
 @Component({
   selector: 'app-product-upload',
@@ -9,9 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ProductUploadComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private registrationService: RegistrationService) { }
 
   addProductForm: FormGroup;
+  productCategoryList = [];
 
   ngOnInit() {
     this.addProductForm = new FormGroup({
@@ -22,6 +24,7 @@ export class ProductUploadComponent implements OnInit {
       stockStatus: new FormControl(''),
       productDescription: new FormControl(''),
     });
+    this.getVendorProductList();
   }
   openNav() {
     document.getElementById("mySidebar").style.width = "250px";
@@ -38,12 +41,18 @@ export class ProductUploadComponent implements OnInit {
   }
 
   addProduct() {
-    console.log(this.addProductForm.value);
     this.router.navigate(['product-list']);
   }
 
   logout() {
     this.router.navigate(['login']);
+  }
+
+  getVendorProductList() {
+    this.registrationService.listProducts().subscribe(
+      (data) => {
+        this.productCategoryList = data.result;
+      });
   }
 
 }
