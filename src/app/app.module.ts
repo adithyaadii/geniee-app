@@ -16,6 +16,8 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
 import { ProductListComponent } from './product-upload/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login/login.service';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { LoginService } from './login/login.service';
     PackagesComponent,
     SucessComponent,
     ProductUploadComponent,
-    ProductListComponent
+    ProductListComponent,
+    AdminProfileComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { BookstallComponent } from './vendor-registration-inner-page/book stall/
 import { SucessComponent } from './regestration-successfull/sucess.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
 import { ProductListComponent } from './product-upload/product-list/product-list.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component'
 const routes: Routes = [
   {
     path: '',
@@ -55,7 +56,12 @@ const routes: Routes = [
   {
     path: 'product-list',
     component: ProductListComponent
-  }
+  },
+  {
+    path: 'admin-profile',
+    component: AdminProfileComponent
+  },
+
 
 ];
 
