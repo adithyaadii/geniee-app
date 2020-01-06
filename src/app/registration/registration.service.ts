@@ -37,4 +37,10 @@ export class RegistrationService {
     )})
   }
 
+  getProducts(): Observable<any> {
+    return this.http.get('http://api.walltechsoft.com/admin/product/1/all', {headers: new HttpHeaders(
+      {'Content-Type': 'application/x-www-form-urlencoded', Authorization: localStorage.getItem("LoggedInUser")}
+    )});
+  }
+
 }

@@ -9,8 +9,8 @@
             </div>
             <div class="col-10">
                     <a class="dropdown-item" href="#">Walltech</a>
-                    <a class="dropdown-item" href="#">Edit my profile</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" [routerLink]="['/admin-profile']" routerDirection="forward">Edit my profile</a>
+                    <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>
@@ -24,58 +24,90 @@
     <a href="#">Reports</a>
     <a href="#">Settings</a>
 </div>
-<table id="page-content" class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col"><input type="checkbox"></th>
-            <th scope="col">Item Name</th>
-            <th scope="col">SKU</th>
-            <th scope="col">Regular Price</th>
-            <th scope="col">Sales Price</th>
-            <th scope="col">Categories</th>
-            <th scope="col">Type</th>
-            <th scope="col">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"><input type="checkbox"></th>
-            <td>koren-Food</td>
-            <td>KR584UT</td>
-            <td>$250.00</td>
-            <td>$230.00</td>
-            <td>Fish</td>
-            <td>Non-Veg</td>
-            <td>
-              <p>Last Modified</p>
-              <p>2019/08/16</p>
-            </td>
-          </tr>
-          <tr>
-              <th scope="row"><input type="checkbox"></th>
-              <td>salmon</td>
-              <td>SM487RE</td>
-              <td>$280.00</td>
-              <td>$250.00</td>
-              <td>Fish</td>
-              <td>Non-Veg</td>
-              <td>
-                <p>Last Modified</p>
-                <p>2019/08/16</p>
-              </td>
-            </tr>
-            <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <td>Chicke tika</td>
-                <td>CH974TD</td>
-                <td>$320.00</td>
-                <td>$300.00</td>
-                <td>Chicken</td>
-                <td>Non-Veg</td>
-                <td>
-                  <p>Last Modified</p>
-                  <p>2019/08/16</p>
-                </td>
-              </tr>
-        </tbody>
+
+<div class="add-buttons">
+  <button class="all-menu" type="button">All Menu Items</button>
+  <button class="add-menu" type="button">Add Menu</button>
+</div>
+
+<mat-card>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search products">
+  </mat-form-field>
+  
+</mat-card>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prodImage">
+    <th mat-header-cell *matHeaderCellDef style="padding-left: 15px;">
+      <img src="assets/images/table-img.png" class="table-img" alt="table-img" />
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <img [src]="element.ProductImage">
+    </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Item Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.Name}}
+    <p>ID: {{element.ProductID}} | <a class="edit" href="javascript:void(0);">Edit</a> | <a class="trash" href="javascript:void(0);">Trash</a></p>  
+    </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="sku">
+    <th mat-header-cell *matHeaderCellDef>SKU</th>
+    <td mat-cell *matCellDef="let element"> {{element.SKU}} </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="rp">
+    <th mat-header-cell *matHeaderCellDef>Regular price</th>
+    <td mat-cell *matCellDef="let element"> {{element.RegularPrice}} </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="sp">
+    <th mat-header-cell *matHeaderCellDef>Sales price</th>
+    <td mat-cell *matCellDef="let element"> {{element.SalePrice}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="categories">
+    <th mat-header-cell *matHeaderCellDef>Categories</th>
+    <td mat-cell *matCellDef="let element"> {{element.Category}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let element"> {{element.Type}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element"> {{element.ModifiedData}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr class="bg-row" mat-row *matRowDef="let row; columns: displayedColumns;">
+  </tr>
 </table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

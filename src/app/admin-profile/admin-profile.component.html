@@ -1,5 +1,5 @@
 <nav class="navbar product-navbar" id="main">
-          <button class="toggle-button text-left" id="openBtn" (click)="openNav()" href="javascript:void(0)">☰</button>
+          <button class="toggle-button text-left" id="openBtn" href="javascript:void(0)">☰</button>
           <div class="nav-item dropdown">
           <a class="text-right user-profile nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Howdy, Walltech</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -16,16 +16,7 @@
           </div>
           </div>
       </nav>
-      
-      <div id="mySidebar" class="sidebar">
-          <button type="button" class="closebtn" (click)="closeNav()">☰</button>
-          <a href="javascript:void(0);">Products</a>
-          <a href="javascript:void(0);">Vendor's</a>
-          <a href="javascript:void(0);">Delivery Boy</a>
-          <a href="javascript:void(0);">Reports</a>
-          <a href="javascript:void(0);">Settings</a>
-      </div>
-      <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+      <form>
       <div id="page-content" class="page-content">
           <div class="row">
               <div class="col-6 text-left">
@@ -46,19 +37,19 @@
                               <div class="row pricing-wrap">
                                   <div class="col-5"><label>User Name</label></div>
                                   <div class="col-7">
-                                      <input formControlName="username" type="text" placeholder="username">
+                                      <input type="text" placeholder="username">
                                   </div>
                               </div>
                               <div class="row pricing-wrap">
                                   <div class="col-5"><label>First Name</label></div>
                                   <div class="col-7">
-                                      <input formControlName="First Name" type="text" placeholder="First Name">
+                                      <input type="text" placeholder="First Name">
                                   </div>
                               </div>
                               <div class="row pricing-wrap">
                                    <div class="col-5"><label>Email(required)</label></div>
                                        <div class="col-7">
-                                             <input formControlName="sku" type="text" placeholder="SKU">
+                                             <input type="text" placeholder="SKU">
                                        </div>
                               </div>
                           </div>
@@ -69,13 +60,13 @@
                               <div class="row pricing-wrap">
                                   <div class="col-5"><label>Last Name</label></div>
                                   <div class="col-7">
-                                      <input formControlName="Last Name" type="text" placeholder="Last Name">
+                                      <input type="text" placeholder="Last Name">
                                   </div>
                               </div>
                               <div class="row pricing-wrap">
                                <div class="col-5"><label>New Password</label></div>
                                  <div class="col-7">
-                                  <input formControlName="New Password" type="password" placeholder="New Password">
+                                  <input type="password" placeholder="New Password">
                                 </div>
                               </div>
                           </div>
@@ -107,25 +98,25 @@
                                           <div class="row pricing-wrap">
                                               <div class="col-5"><label>Company Name</label></div>
                                               <div class="col-7">
-                                                  <input formControlName="companyName" type="text" placeholder="companyName">
+                                                  <input type="text" placeholder="companyName">
                                               </div>
                                           </div>
                                           <div class="row pricing-wrap">
                                               <div class="col-5"><label>Address Line2</label></div>
                                               <div class="col-7">
-                                                  <input formControlName="AddressLine2" type="text" placeholder="AddressLine2">
+                                                  <input type="text" placeholder="AddressLine2">
                                               </div>
                                           </div>
                                           <div class="row pricing-wrap">
                                                <div class="col-5"><label>Postalcode/ ZIP</label></div>
                                                    <div class="col-7">
-                                                         <input formControlName="postalcode" type="text" placeholder="postalcode">
+                                                         <input type="text" placeholder="postalcode">
                                                    </div>
                                           </div>
                                           <div class="row pricing-wrap">
                                                             <div class="col-5"><label>Country</label></div>
                                                                 <div class="col-7">
-                                                                      <input formControlName="country" type="text" placeholder="country">
+                                                                      <input type="text" placeholder="country">
                                                                 </div>
                                                        </div>
                                       </div>
@@ -133,25 +124,25 @@
                                           <div class="row pricing-wrap">
                                               <div class="col-5"><label>Address Line1</label></div>
                                               <div class="col-7">
-                                                  <input formControlName="Addressline1" type="text" placeholder="Addressline1">
+                                                  <input type="text" placeholder="Addressline1">
                                               </div>
                                           </div>
                                           <div class="row pricing-wrap">
                                            <div class="col-5"><label>City</label></div>
                                              <div class="col-7">
-                                              <input formControlName="city" type="text" placeholder="city">
+                                              <input type="text" placeholder="city">
                                             </div>
                                           </div>
                                           <div class="row pricing-wrap">
                                                <div class="col-5"><label>State</label></div>
                                                   <div class="col-7">
-                                                     <input formControlName="State" type="text" placeholder="State">
+                                                     <input type="text" placeholder="State">
                                                   </div>
                                            </div>
                                           <div class="row pricing-wrap">
                                              <div class="col-5"><label>Phone</label></div>
                                                 <div class="col-7">
-                                                   <input formControlName="Phone" type="text" placeholder="Phone">
+                                                   <input type="text" placeholder="Phone">
                                                  </div>
                                           </div>
                                       </div>

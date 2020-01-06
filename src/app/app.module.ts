@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './auth.service';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AppMaterialModule } from './app.material.module';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -40,13 +42,14 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppMaterialModule,
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [RegistrationService, LoginService, AuthService],
+  providers: [RegistrationService, LoginService, AuthService, {provide: AuthGuardService, useClass: AuthGuardService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,11 +16,12 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
-     pathMatch: 'full'
+    pathMatch: 'full'
   },
   {
     path: 'login',
-    loadChildren: './login/login.module#LoginModule'
+    loadChildren: './login/login.module#LoginModule',
+    
   },
   {
     path: 'registration',
@@ -64,11 +65,13 @@ const routes: Routes = [
   },
   {
     path: 'product-list',
-    component: ProductListComponent
+    component: ProductListComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'admin-profile',
-    component: AdminProfileComponent
+    component: AdminProfileComponent,
+    canActivate: [AuthGuardService]
   },
 
 

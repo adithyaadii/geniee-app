@@ -18,7 +18,7 @@ export class AuthService {
     return this.getToken() !== null;
   }
   logout() {
-    localStorage.removeItem("LoggedInUser");
+    localStorage.clear();
     this.myRoute.navigate(['login']);
   }
 }
