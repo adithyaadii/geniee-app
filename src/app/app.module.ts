@@ -19,6 +19,8 @@ import { LoginService } from './login/login.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './auth.service';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { AuthService } from './auth.service';
     PackagesComponent,
     SucessComponent,
     ProductUploadComponent,
-    ProductListComponent
+    ProductListComponent,
+    AdminProfileComponent,
+
   ],
   imports: [
     BrowserModule,
