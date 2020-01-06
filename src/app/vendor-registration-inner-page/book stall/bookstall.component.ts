@@ -12,10 +12,10 @@ export class BookstallComponent implements OnInit {
 
   constructor(private router: Router, private registrationService: RegistrationService) { }
 
-  restuarantForm: FormGroup;
+  bookStallForm: FormGroup;
 
   ngOnInit() {
-    this.restuarantForm = new FormGroup({
+    this.bookStallForm = new FormGroup({
       vendorName: new FormControl('', [Validators.required]),
       vendorPocName: new FormControl('', [Validators.required]),
       vendorPocDesignation: new FormControl('', [Validators.required]),
@@ -25,16 +25,16 @@ export class BookstallComponent implements OnInit {
     });
   }
 
-  restuarantFormSubmit(){
-    if (this.restuarantForm.valid) {
+  bookStallFormSubmit(){
+    if (this.bookStallForm.valid) {
       const registrationForm = {
         UserCategoryID: 2,
-        Name: this.restuarantForm.value.vendorName,
-        POCName: this.restuarantForm.value.vendorPocName,
-        POCDesignation: this.restuarantForm.value.vendorPocDesignation,
-        Phone: this.restuarantForm.value.vendorPocContactNumber,
-        Email: this.restuarantForm.value.vendorPocEmail,
-        City: this.restuarantForm.value.vendorCity
+        Name: this.bookStallForm.value.vendorName,
+        POCName: this.bookStallForm.value.vendorPocName,
+        POCDesignation: this.bookStallForm.value.vendorPocDesignation,
+        Phone: this.bookStallForm.value.vendorPocContactNumber,
+        Email: this.bookStallForm.value.vendorPocEmail,
+        City: this.bookStallForm.value.vendorCity
       }
       this.registrationService.submitVendorRegistrationForm(registrationForm).subscribe(
         (data) => {

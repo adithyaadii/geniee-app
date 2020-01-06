@@ -15,7 +15,7 @@
     
     
                     </div>
-                    <form [formGroup]="restuarantForm" (ngSubmit)="restuarantFormSubmit()">
+                    <form [formGroup]="bookStallForm" (ngSubmit)="bookStallFormSubmit()">
                         <div class="container-fluid justify-content-center">
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 required">
@@ -47,7 +47,7 @@
                                     <input formControlName="vendorCity" type="text" class="form-control custom-input" id="input" placeholder="Vendor City">
                                 </div>
                             </div>
-                            <div class="text-center submitBtn"><button type="submit" [ngClass]="{'disabled': !restuarantForm.valid}" [disabled]="!restuarantForm.valid" class="btn btn-primary">Submit</button></div>
+                            <div class="text-center submitBtn"><button type="submit" [ngClass]="{'disabled': !bookStallForm.valid}" [disabled]="!bookStallForm.valid" class="btn btn-primary">Submit</button></div>
                         </div>
                     </form>
                 </div>

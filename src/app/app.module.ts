@@ -43,9 +43,9 @@ import { AuthGuardService } from './guards/auth-guard.service';
     BrowserModule,
     BrowserAnimationsModule,
     AppMaterialModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot()
   ],

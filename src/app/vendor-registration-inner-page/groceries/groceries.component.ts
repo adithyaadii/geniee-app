@@ -12,10 +12,10 @@ export class GroceriesComponent implements OnInit {
 
   constructor(private router: Router, private registrationService: RegistrationService) { }
 
-  restuarantForm: FormGroup;
+  groceryForm: FormGroup;
 
   ngOnInit() {
-    this.restuarantForm = new FormGroup({
+    this.groceryForm = new FormGroup({
       vendorName: new FormControl('', [Validators.required]),
       vendorPocName: new FormControl('', [Validators.required]),
       vendorPocDesignation: new FormControl('', [Validators.required]),
@@ -25,16 +25,16 @@ export class GroceriesComponent implements OnInit {
     });
   }
 
-  restuarantFormSubmit(){
-    if (this.restuarantForm.valid) {
+  groceryFormSubmit(){
+    if (this.groceryForm.valid) {
       const registrationForm = {
         UserCategoryID: 4,
-        Name: this.restuarantForm.value.vendorName,
-        POCName: this.restuarantForm.value.vendorPocName,
-        POCDesignation: this.restuarantForm.value.vendorPocDesignation,
-        Phone: this.restuarantForm.value.vendorPocContactNumber,
-        Email: this.restuarantForm.value.vendorPocEmail,
-        City: this.restuarantForm.value.vendorCity
+        Name: this.groceryForm.value.vendorName,
+        POCName: this.groceryForm.value.vendorPocName,
+        POCDesignation: this.groceryForm.value.vendorPocDesignation,
+        Phone: this.groceryForm.value.vendorPocContactNumber,
+        Email: this.groceryForm.value.vendorPocEmail,
+        City: this.groceryForm.value.vendorCity
       }
       this.registrationService.submitVendorRegistrationForm(registrationForm).subscribe(
         (data) => {
