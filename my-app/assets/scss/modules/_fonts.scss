@@ -1,0 +1,15 @@
+@font-face { font-family: 'Avenir-Roman'; 
+    src: url('assets/fonts/roman/AvenirLTStd-Roman.eot'); /* IE9 Compat Modes */ 
+    src: url('assets/fonts/roman/AvenirLTStd-Roman.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ 
+    url('assets/fonts/roman/AvenirLTStd-Roman.woff2') format('woff2'), /* Super Modern Browsers */ 
+    url('assets/fonts/roman/AvenirLTStd-Roman.woff') format('woff'), /* Pretty Modern Browsers */ 
+    url('assets/fonts/roman/AvenirLTStd-Roman.ttf') format('truetype'), /* Safari, Android, iOS */ 
+    url('assets/fonts/roman/AvenirLTStd-Roman.svg#svgFontName') format('svg'); /* Legacy iOS */ 
+}
+
+@font-face {
+    font-family: 'Avenir-Heavy';
+    src: url('/src/assets/fonts/heavy/AvenirLTStd-Heavy.woff2') format('woff2'),
+      url('/src/assets/fonts/heavy/AvenirLTStd-Heavy.woff') format('woff');
+    font-style: normal;
+}
