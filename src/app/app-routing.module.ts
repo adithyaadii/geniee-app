@@ -10,6 +10,7 @@ import { BookstallComponent } from './vendor-registration-inner-page/book stall/
 import { SucessComponent } from './regestration-successfull/sucess.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
 import { ProductListComponent } from './product-upload/product-list/product-list.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 const routes: Routes = [
   {
     path: '',
@@ -22,39 +23,48 @@ const routes: Routes = [
   },
   {
     path: 'registration',
-    component: RegistrationComponent
+    component: RegistrationComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'vendor-registration',
-    component: VendorRegistrationInnerPageComponent
+    component: VendorRegistrationInnerPageComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'restaurant',
-    component: RestuarantComponent
+    component: RestuarantComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'groceries',
-    component: GroceriesComponent
+    component: GroceriesComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'packages',
-    component: PackagesComponent
+    component: PackagesComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'bookstall',
-    component: BookstallComponent
+    component: BookstallComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'sucess',
-    component: SucessComponent
+    component: SucessComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'product-upload',
-    component: ProductUploadComponent
+    component: ProductUploadComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'product-list',
-    component: ProductListComponent
+    component: ProductListComponent,
+     canActivate: [AuthGuardService]
   }
 
 ];

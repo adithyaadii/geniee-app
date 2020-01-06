@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule }    from '@angular/forms';
+import { ReactiveFormsModule, FormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +16,9 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
 import { ProductListComponent } from './product-upload/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login/login.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthService } from './auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,11 +35,14 @@ import { LoginService } from './login/login.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
-  providers: [RegistrationService, LoginService],
+  providers: [RegistrationService, LoginService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

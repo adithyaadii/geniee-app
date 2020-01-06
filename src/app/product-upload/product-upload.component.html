@@ -25,7 +25,7 @@
     <a href="javascript:void(0);">Reports</a>
     <a href="javascript:void(0);">Settings</a>
 </div>
-<form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+<form [formGroup]="addProductForm" (ngSubmit)="uploadVendorProducts()">
 <div id="page-content" class="page-content">
     <div class="row">
         <div class="col-6 text-left">
@@ -101,7 +101,7 @@
                         <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
                         <ul>
                             <li *ngFor="let categories of productCategoryList | keyvalue">
-                                <input type="checkbox" (change)="selectCategory(categories.value, $event.target.checked)">
+                                <input formControlName="categories" type="checkbox" [(ngModel)]="categories.checked" (change)="selectCategory(categories.value, $event)">
                                 <label>{{categories.value.CategoryName}}</label>
                             </li>
                         </ul>
@@ -113,10 +113,6 @@
                 <div class="card-header" style=background-color:#fff>Product type</div>
                 <div class="card-body">
                     <div class="checkbox">
-                        <label>
-                          <input type="checkbox" data-toggle="toggle">
-                          Option one is enabled
-                        </label>
                       </div>
                 </div>
             </div>

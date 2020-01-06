@@ -8,7 +8,7 @@
                             <div class=" col-6 text-right ">
                             <button [routerLink]="['/registration']" routerDirection="forward" type="button" class="btn btn-primary registerBtn">Register Another One</button>
                             </div>
-                            <div class="col-6 text-left "><button [routerLink]="['/product-upload']" routerDirection="forward" type="button" class="btn btn-primary loginBtn">Login</button></div>
+                            <div class="col-6 text-left "><button (click)="navigateToProductUpload()" type="button" class="btn btn-primary loginBtn">Products</button></div>
                      </div>
                      </div>
               </div>

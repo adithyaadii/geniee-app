@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration/registration.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-product-upload',
@@ -10,10 +11,11 @@ import { RegistrationService } from '../registration/registration.service';
 })
 export class ProductUploadComponent implements OnInit {
 
-  constructor(private router: Router, private registrationService: RegistrationService) { }
+  constructor(private router: Router, private registrationService: RegistrationService, private auth: AuthService) { }
 
   addProductForm: FormGroup;
   productCategoryList = [];
+  selectedCategoryArray = [];
 
   ngOnInit() {
     this.addProductForm = new FormGroup({
@@ -23,6 +25,7 @@ export class ProductUploadComponent implements OnInit {
       salePrice: new FormControl(''),
       stockStatus: new FormControl(''),
       productDescription: new FormControl(''),
+      categories: new FormControl(),
     });
     this.getVendorProductList();
   }
@@ -45,7 +48,7 @@ export class ProductUploadComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['login']);
+    this.auth.logout();
   }
 
   getVendorProductList() {
@@ -53,6 +56,37 @@ export class ProductUploadComponent implements OnInit {
       (data) => {
         this.productCategoryList = data.result;
       });
+  }
+
+  selectCategory(selectedCategory, event) {
+    if (event.target.checked === true) {
+      this.selectedCategoryArray.push(selectedCategory.CategoryID);
+    } else if (event.target.checked === false) {
+      let index = this.selectedCategoryArray.indexOf(selectedCategory.CategoryID);
+      if (index > -1) {
+        this.selectedCategoryArray.splice(index, 1);
+      }
+    }
+  }
+
+  uploadVendorProducts() {
+    const productUploadPayload = {
+      ProductID: '',
+      CategoryID: this.selectedCategoryArray,
+      Name: this.addProductForm.value.productName,
+      ProductType: 'Veg',
+      SKU: this.addProductForm.value.sku,
+      Quantity: this.addProductForm.value.productName,
+      InStock: this.addProductForm.value.stockStatus,
+      RegularPrice: this.addProductForm.value.regularPrice,
+      SalePrice: this.addProductForm.value.salePrice,
+      Description: this.addProductForm.value.productDescription,
+    };
+    this.registrationService.addProducts(productUploadPayload).subscribe(
+      (data) => {
+        console.log(data);
+      }
+    );
   }
 
 }
