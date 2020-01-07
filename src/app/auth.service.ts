@@ -17,6 +17,9 @@ export class AuthService {
   isLoggedIn() {
     return this.getToken() !== null;
   }
+  isRegistered() {
+    return true;
+  }
   logout() {
     localStorage.clear();
     this.myRoute.navigate(['login']);

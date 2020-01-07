@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { RegistrationService } from '../registration/registration.service';
 import { AuthService } from '../auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-upload',
@@ -11,13 +12,22 @@ import { AuthService } from '../auth.service';
 })
 export class ProductUploadComponent implements OnInit {
 
-  constructor(private router: Router, private registrationService: RegistrationService, private auth: AuthService) { }
+  constructor(private router: Router, private registrationService: RegistrationService, private auth: AuthService, private formBuilder: FormBuilder) { }
 
   addProductForm: FormGroup;
   productCategoryList = [];
   selectedCategoryArray = [];
 
   ngOnInit() {
+    this.addProductForm = this.formBuilder.group({
+      productName: new FormControl('', Validators.required),
+      regularPrice: new FormControl('', Validators.required),
+      sku: new FormControl('', Validators.required),
+      salePrice: new FormControl('', Validators.required),
+      stockStatus: new FormControl('', Validators.required),
+      productDescription: new FormControl('', Validators.required),
+      categories: new FormControl('', Validators.required),
+    });
     const dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
     for (i = 0; i < dropdown.length; i++) {
@@ -31,17 +41,9 @@ export class ProductUploadComponent implements OnInit {
       }
       });
     }
-    this.addProductForm = new FormGroup({
-      productName: new FormControl(''),
-      regularPrice: new FormControl(''),
-      sku: new FormControl(''),
-      salePrice: new FormControl(''),
-      stockStatus: new FormControl(''),
-      productDescription: new FormControl(''),
-      categories: new FormControl(),
-    });
     this.getVendorProductList();
   }
+
   openNav() {
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
@@ -83,13 +85,16 @@ export class ProductUploadComponent implements OnInit {
   }
 
   uploadVendorProducts() {
+    if (this.addProductForm.invalid) {
+      return;
+    }
     const productUploadPayload = {
       ProductID: '',
-      CategoryID: this.selectedCategoryArray,
+      CategoryID: 1,
       Name: this.addProductForm.value.productName,
       ProductType: 'Veg',
       SKU: this.addProductForm.value.sku,
-      Quantity: this.addProductForm.value.productName,
+      Quantity: 1,
       InStock: this.addProductForm.value.stockStatus,
       RegularPrice: this.addProductForm.value.regularPrice,
       SalePrice: this.addProductForm.value.salePrice,
@@ -97,9 +102,10 @@ export class ProductUploadComponent implements OnInit {
     };
     this.registrationService.addProducts(productUploadPayload).subscribe(
       (data) => {
-        console.log(data);
+        if (data && data!== undefined) {
+          this.router.navigate(['product-list']);
+        }
       }
     );
   }
-
 }

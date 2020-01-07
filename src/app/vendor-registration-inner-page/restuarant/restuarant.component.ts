@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationService } from 'src/app/registration/registration.service';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-restuarant',
@@ -10,7 +11,7 @@ import { RegistrationService } from 'src/app/registration/registration.service';
 })
 export class RestuarantComponent implements OnInit {
 
-  constructor(private router: Router, private registrationService: RegistrationService) { }
+  constructor(private router: Router, private registrationService: RegistrationService, private auth: AuthService) { }
 
   restuarantForm: FormGroup;
 
@@ -38,7 +39,7 @@ export class RestuarantComponent implements OnInit {
       }
       this.registrationService.submitVendorRegistrationForm(registrationForm).subscribe(
         (data) => {
-          console.log(data);
+          this.auth.isRegistered();
           this.router.navigate(['sucess']);
         }
       );
