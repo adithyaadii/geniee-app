@@ -43,4 +43,10 @@ export class RegistrationService {
     )});
   }
 
+  getVendorList(categoryId): Observable<any> {
+    return this.http.get('http://api.walltechsoft.com/vendor/list/' + categoryId, {headers: new HttpHeaders(
+      {'Content-Type': 'application/json', Authorization: localStorage.getItem("LoggedInUser")}
+    )});
+  }
+
 }

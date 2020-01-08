@@ -21,7 +21,7 @@
     <button type="button" class="closebtn" (click)="closeNav()">☰</button>
     <a href="javascript:void(0);" class="dropdown-btn">Products</a>
     <div class="dropdown-container">
-        <a  href="javascript:void(0);">Resturants</a>
+        <a class="product-category-list" href="javascript:void(0);">Resturants</a>
         <a href="javascript:void(0);">Groceries</a>
         <a href="javascript:void(0);">Packages</a>
         <a href="javascript:void(0);">BookStalls</a>
@@ -94,8 +94,9 @@
                 <div class="card-header" style=background-color:#fff>Product Image</div>
                 <div class="card-body">
                     <label class="btn btn-default" style=text-align:left!important;color:blue>
-                        <img src="assets/images/attachmenticon.png" style=width:10%> Set product image <input
-                            type="file" hidden>
+                        <img src="assets/images/attachmenticon.png" style=width:10%> Set product image 
+                        <input type="file" (change)="createticketfileChange($event.target.files)" hidden>
+                        <p *ngIf="fileToUpload" class="file-name">{{fileToUpload}}</p>
                     </label>
                 </div>
             </div>

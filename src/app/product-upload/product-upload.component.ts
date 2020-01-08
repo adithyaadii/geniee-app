@@ -17,6 +17,7 @@ export class ProductUploadComponent implements OnInit {
   addProductForm: FormGroup;
   productCategoryList = [];
   selectedCategoryArray = [];
+  fileToUpload: any;
 
   ngOnInit() {
     this.addProductForm = this.formBuilder.group({
@@ -107,5 +108,11 @@ export class ProductUploadComponent implements OnInit {
         }
       }
     );
+  }
+
+  createticketfileChange(event: FileList) {
+    const imageUpload: File = event.item(0);
+    this.fileToUpload = imageUpload.name;
+    console.log(this.fileToUpload);
   }
 }

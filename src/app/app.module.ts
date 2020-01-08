@@ -22,6 +22,7 @@ import { AuthService } from './auth.service';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { AppMaterialModule } from './app.material.module';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { AngularFileUploaderModule } from "angular-file-uploader";
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AuthGuardService } from './guards/auth-guard.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularFileUploaderModule,
     ToastrModule.forRoot()
   ],
   providers: [RegistrationService, LoginService, AuthService, {provide: AuthGuardService, useClass: AuthGuardService}],

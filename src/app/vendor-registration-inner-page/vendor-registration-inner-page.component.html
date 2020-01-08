@@ -1,5 +1,24 @@
-<app-restuarant *ngIf="selectedVendorValues === '1'"></app-restuarant>
+<div *ngIf="!isLoading" style="height: 100%;">
+<div *ngIf="showVendorListScreen" style="height: 100%;">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="vendorId">
+            <th mat-header-cell *matHeaderCellDef>Vendor Id</th>
+            <td mat-cell *matCellDef="let element"><a (click)="showProductList()" href="javascript:void(0)">{{element.VendorId}}</a></td>
+        </ng-container>
+        <ng-container matColumnDef="vendorName">
+            <th mat-header-cell *matHeaderCellDef>Vendor Name</th>
+            <td mat-cell *matCellDef="let element">{{element.VendorName}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="bg-row" mat-row *matRowDef="let  row; columns: displayedColumns;">
+        </table>
+</div>
+<div *ngIf="!showVendorListScreen">
+    <app-restuarant *ngIf="selectedVendorValues === '1'"></app-restuarant>
+    <app-groceries *ngIf="selectedVendorValues === '4'"></app-groceries>
+    <app-packages *ngIf="selectedVendorValues === '3'"></app-packages>
+    <app-bookstall *ngIf="selectedVendorValues === '2'"></app-bookstall>
+</div>
+</div>
 
-<app-groceries *ngIf="selectedVendorValues === '4'"></app-groceries>
-<app-packages *ngIf="selectedVendorValues === '3'"></app-packages>
-<app-bookstall *ngIf="selectedVendorValues === '2'"></app-bookstall>
+<div *ngIf="isLoading"><mat-progress-bar mode="indeterminate"></mat-progress-bar></div>
